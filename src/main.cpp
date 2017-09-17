@@ -51,7 +51,7 @@ int main()
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<std::string>());
           double speed = std::stod(j[1]["speed"].get<std::string>());
-          double speed_cte = desired_speed - speed;
+          double speed_cte = speed - desired_speed;
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
           /*
@@ -65,7 +65,7 @@ int main()
           steer_value = pid.TotalError();
 
           throttle_pid.UpdateError(speed_cte);
-          double throttle_value = -throttle_pid.TotalError();
+          double throttle_value = throttle_pid.TotalError();
 
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
