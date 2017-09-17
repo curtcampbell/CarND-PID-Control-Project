@@ -1,6 +1,8 @@
 #ifndef PID_H
 #define PID_H
 
+#include <chrono>
+
 class PID {
 public:
   /*
@@ -9,6 +11,8 @@ public:
   double p_error;
   double i_error;
   double d_error;
+  double prev_cte;
+  double total_cte;
 
   /*
   * Coefficients
@@ -17,10 +21,13 @@ public:
   double Ki;
   double Kd;
 
+  bool has_prev_cte;
+
+  std::chrono::steady_clock::time_point last_time_stamp;
   /*
   * Constructor
   */
-  PID();
+  PID(double Kp, double Ki, double Kd);
 
   /*
   * Destructor.
