@@ -6,6 +6,7 @@ Self-Driving Car Engineer Nanodegree Program
 ## Reflection
 
 ####Describe the effect each of the P, I, D components had in your implementation.
+
 **P** establishes an error correction that is proportional to the cross track error.  
 Increasing this value strengthens the amount the controller will try to correct when there is error.  
 Increasing this value will cause the controller to respond more quickly to error in the system.
@@ -24,6 +25,7 @@ oscillations from the P term.  Setting too high doesn't seem to have adverse aff
 not be the case in a real system however. 
 
 ####Describe how the final hyperparameters were chosen.
+
 I chose the final hyperparameters mostly through trial and error.  There are a few automated approaches I could 
 have taken.  Twiddle is one of them.  However it was simple enough to play with it manually.  Additionally I 
 feel that manually adjusting the parameters gave be a better feel for the effects of adjusting each parameter.  
